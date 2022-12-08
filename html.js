@@ -1,4 +1,4 @@
-const html = `<html>
+const main = `<html>
                 <head>
                   <meta charset="utf-8">
                 </head>
@@ -7,4 +7,20 @@ const html = `<html>
                 </body> 
               </html>`;
 
-module.exports = html;              
+const livros = `<html>
+              <head>
+                <meta charset="utf-8">
+              </head>
+              <body>
+                <ul>
+                  <li>Node</li>
+                  <li>PHP</li>
+                  <li>Java</li>
+                </ul>
+              </body> 
+            </html>`;
+
+module.exports = {
+  main,
+  livros
+}              
