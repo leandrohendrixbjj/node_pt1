@@ -1,8 +1,10 @@
-const routes = (app) => {
+const booksRoute = require('../Books/routes.js');
+
+module.exports = (app) => {
 
     app.get('/', (req, res) => {
-        res.send("Welcome  to main")
+        res.send("Welcome")
     });
-}
 
-module.exports = routes;
+    app.use('/api/books', booksRoute);
+}
