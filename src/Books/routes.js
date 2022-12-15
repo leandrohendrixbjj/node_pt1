@@ -1,7 +1,9 @@
 const route = require('express').Router();
 
 route.get('/', (req, res) => {
-    res.send("Welcome to books main")
+    res.marko(
+        require('../app/views/books/list.marko')
+    );
 });
 
 module.exports = route;

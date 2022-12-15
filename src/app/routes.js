@@ -6,5 +6,5 @@ module.exports = (app) => {
         res.send("Welcome")
     });
 
-    app.use('/api/books', booksRoute);
+    app.use('/books', booksRoute);
 }
