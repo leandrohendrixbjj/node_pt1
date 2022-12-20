@@ -1,21 +1,15 @@
 const route = require('express').Router();
+const db = require('../config/database.js');
 
 route.get('/', (req, res) => {
-    res.marko(
-        require('../app/views/books/list.marko'),
-        {
-            livros: [
-                {
-                    id: 1,
-                    titulo: 'Fundamentos do Node'
-                },
-                {
-                    id: 2,
-                    titulo: 'Node Avançado'
-                }
-            ]
-        }
-    );
+    db.all('SELECT * FROM livros', (error, result) => {
+        res.marko(
+            require('../app/views/books/list.marko'),
+            {
+                livros: result
+            }
+        );
+    });
 });
 
 module.exports = route;
