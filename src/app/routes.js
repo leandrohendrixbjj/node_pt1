@@ -1,4 +1,4 @@
-const booksRoute = require('../Books/routes.js');
+const livroRoutes = require('../Livros/routes.js');
 
 module.exports = (app) => {
 
@@ -6,5 +6,5 @@ module.exports = (app) => {
         res.send("Welcome")
     });
 
-    app.use('/books', booksRoute);
+    app.use('/livros', livroRoutes);
 }
