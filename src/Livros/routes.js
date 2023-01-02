@@ -12,4 +12,16 @@ route.get('/', async (req, res) => {
     );
 });
 
+route.get('/form', async (req, res) => {
+    res.marko(
+        require('../app/views/books/form.marko')
+    );
+});
+
+route.post('/', async (req, res) => {
+    console.log(
+        req.body
+    );
+});
+
 module.exports = route;
