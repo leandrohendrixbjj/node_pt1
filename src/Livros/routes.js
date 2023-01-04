@@ -19,9 +19,14 @@ route.get('/form', async (req, res) => {
 });
 
 route.post('/', async (req, res) => {
-    console.log(
-        req.body
-    );
+    try {
+        let livro = new LivroDao(db);
+        console.log(req.body);
+        await livro.add(req.body);
+        res.redirect('/livros');
+    } catch (error) {
+        console.log(error)
+    }
 });
 
 module.exports = route;
