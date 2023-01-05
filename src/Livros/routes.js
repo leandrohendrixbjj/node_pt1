@@ -29,4 +29,15 @@ route.post('/', async (req, res) => {
     }
 });
 
+app.delete('/livros/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+        const livro = new LivroDao(db);
+        await livro.remove(id);
+        res.redirect('/livros');
+    } catch (error) {
+        console.log(error)
+    }
+});
+
 module.exports = route;
