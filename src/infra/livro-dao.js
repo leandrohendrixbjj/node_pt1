@@ -38,6 +38,22 @@ class LivroDao {
             resolve();
         });
     }
+
+    delete(id) {
+        return new Promise((resolve, reject) => {
+            this._db.run(`DELETE FROM livros WHERE id in (?)`,
+                [id],
+                (error) => {
+                    if (error)
+                        reject(`Error on method delete`)
+                    resolve();
+                }
+            );
+        });
+    }
+
+
+
 }
 
 module.exports = LivroDao;

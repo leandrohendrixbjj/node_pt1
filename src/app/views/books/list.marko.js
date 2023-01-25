@@ -39,7 +39,7 @@ function render(input, out, __component, component, state) {
       marko_escapeXml(livro.preco) +
       "</td><td><a href=\"#\">Editar</a></td> <td><a href=\"#\" data-ref=\"" +
       marko_escapeXmlAttr(livro.id) +
-      "\" data-type=\"remocao\">Remover</a></td> </tr>");
+      "\" data-type=\"delete\">Remover</a></td> </tr>");
   });
 
   out.w(" </table> ");
@@ -48,7 +48,7 @@ function render(input, out, __component, component, state) {
 
   await_reorderer_tag({}, out, __component, "22");
 
-  out.w("</body> <script src=\"../../js/remove-livro.js\"></script></html>");
+  out.w("</body> <script src=\"/static/js/remove-livro.js\"></script></html>");
 }
 
 marko_template._ = marko_renderer(render, {

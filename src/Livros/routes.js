@@ -29,12 +29,12 @@ route.post('/', async (req, res) => {
     }
 });
 
-app.delete('/livros/:id', async (req, resp) => {
+route.delete('/:id', async (req, res) => {
     try {
-        const id = req.params.id;
+        const { id } = req.params;
         const livro = new LivroDao(db);
-        await livro.remove(id);
-        res.redirect('/livros');
+        await livro.delete(id);
+        res.redirect('/livros')
     } catch (error) {
         console.log(error)
     }
