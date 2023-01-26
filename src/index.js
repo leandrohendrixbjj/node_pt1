@@ -1,3 +1,4 @@
+console.clear();
 require('marko/node-require').install();
 require('marko/express');
 

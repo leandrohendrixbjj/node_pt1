@@ -29,6 +29,17 @@ route.post('/', async (req, res) => {
     }
 });
 
+route.get('/form/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        let livroDao = new LivroDao(db);
+        res.marko(
+            require('../app/views/books/formEdit.marko'), { livro: await livroDao.find(id) });
+    } catch (error) {
+        console.log("edit", error);
+    }
+});
+
 route.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;

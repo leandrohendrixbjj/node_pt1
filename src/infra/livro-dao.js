@@ -39,6 +39,31 @@ class LivroDao {
         });
     }
 
+    find(id) {
+        return new Promise((resolve, reject) => {
+            this._db.all(`SELECT * FROM livros WHERE id in (${id})`, (error, books) => {
+                if (error) { reject('Erro na lista de livros'); }
+                resolve(books[0]);
+            });
+        });
+    }
+
+    edit(livro) {
+        return new Promise((resolve, reject) => {
+            this._db.run('UPDATE livros SET titulo=?,preco=?,descricao=? WHERE id in (?)',
+                [
+                    livro.titulo,
+                    livro.preco,
+                    livro.descricao,
+                    livro.id
+                ],
+                (error) => {
+                    if (error) { reject('Error on method Edit'); }
+                    resolve();
+                });
+        });
+    }
+
     delete(id) {
         return new Promise((resolve, reject) => {
             this._db.run(`DELETE FROM livros WHERE id in (?)`,

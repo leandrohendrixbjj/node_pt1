@@ -17,7 +17,10 @@
                 <td>${livro.id}</td>
                 <td>${livro.titulo}</td>
                 <td>${livro.preco}</td>
-                <td><a href="#">Editar</a></td> 
+                <td><a href="/livros/form/${livro.id}" 
+                      data-ref="${livro.id}" 
+                      data-type="editar"
+                      target="_blank">Editar</a></td> 
                 <td><a href="#" data-ref="${livro.id}" data-type="delete">Remover</a></td> 
             </tr>            
         </table>         
