@@ -29,6 +29,17 @@ route.post('/', async (req, res) => {
     }
 });
 
+route.put('/edit', async (req, res) => {
+    try {
+        let livro = new LivroDao(db);
+        await livro.edit(req.body);
+        res.redirect('/livros');
+    } catch (error) {
+        console.log("edit", error);
+        res.status(404).json({ error })
+    }
+})
+
 route.get('/form/:id', async (req, res) => {
     try {
         const { id } = req.params;
